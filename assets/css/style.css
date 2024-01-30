@@ -24,7 +24,8 @@
     /* background-size: contain; */
 }
 
-#webApp-left #user {
+#webApp-left #user,
+#chat-top {
     height: 9%;
     background-color: #eaeaea;
 }
@@ -52,7 +53,7 @@
     border: 1px dashed black;
 }
 
-#allChat .conversation p,
+.conversation p,
 #allChat .conversation > span,
 #webApp-left #notifications a {
     font-size: 0.8rem;
