@@ -3,14 +3,6 @@
     background: linear-gradient(to bottom, rgb(0,150,136) 15%, rgb(218,219,211) 15%);
 }
 
-/* #webApp-left {
-    width: 40%;
-}
-
-#webApp-right {
-    width: 60%;
-} */
-
 #chat-top,
 #chat-bottom {
     height: 9%;
@@ -30,10 +22,6 @@
     background-color: #eaeaea;
 }
 
-/* #user .logo-name figure img {
-    transform: scale(0.2);
-} */
-
 #webApp-left #notifications {
     height: 9%;
     background-color: #8edafc;
@@ -50,7 +38,6 @@
 
 #allChat .conversation {
     height: 12%;
-    border: 1px dashed black;
 }
 
 .conversation p,
@@ -80,11 +67,14 @@
 .chat-message {
     max-width: 35%;
     min-height: 10%;
-    background-color: white;
 }
 
 #chat-middle .chat-message > span {
     font-size: 10px; 
+}
+
+.received-message {
+    background-color: white;
 }
 
 .sent-message {

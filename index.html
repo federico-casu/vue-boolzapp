@@ -20,15 +20,15 @@
         <!-- ANCHOR container web app -->
         <div id="webApp" class="container-fluid vh-100 py-3">
             <!-- ANCHOR container interno -->
-            <div class="container d-flex justify-content-center h-100 border border-danger p-0 bg-white">
+            <div class="container d-flex justify-content-center h-100 p-0 bg-white">
                 <div class="row flex-nowrap w-100 h-100">
                     <!-- ANCHOR sezione di sinistra -->
-                    <div id="webApp-left" class="col-4 p-0 border border-warning h-100">
+                    <div id="webApp-left" class="col-4 p-0 h-100">
                         <!-- ANCHOR user e tasti -->
                         <div id="user" class="d-flex justify-content-between p-2">
                             <div class="logo-name d-flex gap-2">
                                 <figure class="rounded-circle m-0 d-flex align-items-center">
-                                    <img class="rounded-circle h-100" src="./assets/img/avatar_io.jpg" alt="user Image">
+                                    <img class="rounded-circle h-100" src="./img/avatar_io.jpg" alt="user Image">
                                 </figure>
                                 <span class="d-flex align-items-center">Sofia</span>
                             </div>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <!-- ANCHOR barra ricerca chat -->
-                        <div id="findChat" class="input-group d-flex justify-content-center align-items-center py-1 px-2">
+                        <div id="findChat" class="border-bottom input-group d-flex justify-content-center align-items-center py-1 px-2">
                             <span class="input-group-text border-end-0 bg-white">
                                 <i class="fa-solid fa-magnifying-glass fs-4"></i>
                             </span>
@@ -61,15 +61,15 @@
                             />
                         </div>
                         <!-- ANCHOR lista delle chat -->
-                        <div id="allChat" class="border">
+                        <div id="allChat" class="overflow-auto">
                             <!-- conversazione -->
-                            <div class="conversation d-flex justify-content-between p-2">
+                            <div v-for="(contact, index) in contacts" class="conversation d-flex justify-content-between p-2 border-bottom">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
-                                        <img class="rounded-circle h-100" src="./assets/img/avatar_io.jpg" alt="user Image">
+                                        <img class="rounded-circle h-100" :src="contacts[index].avatar" alt="user Image">
                                     </figure>
                                     <div class="d-flex flex-column">
-                                        <span>Nome</span>
+                                        <span>{{contacts[index].name}}</span>
                                         <p class="m-0 text-black-50">Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
@@ -80,12 +80,13 @@
                         </div>
                     </div>
                     <!-- ANCHOR sezione di destra -->
-                    <div id="webApp-right" class="col-8 p-0 border border-primary h-100">
-                        <div id="chat-top" class="border border-success">
+                    <div id="webApp-right" class="col-8 p-0 h-100">
+                        <!-- ANCHOR chat-top -->
+                        <div id="chat-top" class="border-start">
                             <div class="conversation h-100 d-flex justify-content-between p-2">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
-                                        <img class="rounded-circle h-100" src="./assets/img/avatar_io.jpg" alt="user Image">
+                                        <img class="rounded-circle h-100" src="./img/avatar_io.jpg" alt="user Image">
                                     </figure>
                                     <div class="d-flex flex-column">
                                         <span>Nome</span>
@@ -99,8 +100,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="chat-middle" class="container border py-3 px-5">
-                            <div class="chat-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1">
+                        <!-- ANCHOR chat-middle -->
+                        <div id="chat-middle" class="container py-3 px-5">
+                            <div class="chat-message received-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1">
                                 <p class="m-0">
                                     testo del messaggio
                                 </p>
@@ -114,7 +116,8 @@
                                 <span class="align-self-end">12:00</span>
                             </div>
                         </div>
-                        <div id="chat-bottom" class="row w-100 m-0 p-0 flex-nowrap border border-success">
+                        <!-- ANCHOR chat-bottom -->
+                        <div id="chat-bottom" class="row w-100 m-0 p-0 flex-nowrap">
                             <div id="emoticons" class="d-flex justify-content-center align-items-center fs-4 text-black-50">
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
