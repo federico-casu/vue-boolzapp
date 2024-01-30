@@ -76,3 +76,17 @@
 #chat-bottom #text-message input {
     line-height: 2.3;
 }
+
+.chat-message {
+    max-width: 35%;
+    min-height: 10%;
+    background-color: white;
+}
+
+#chat-middle .chat-message > span {
+    font-size: 10px; 
+}
+
+.sent-message {
+    background-color: #d5f9ba;
+}
