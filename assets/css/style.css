@@ -26,14 +26,21 @@
 
 #webApp-left #user {
     height: 9%;
+    background-color: #eaeaea;
 }
+
+/* #user .logo-name figure img {
+    transform: scale(0.2);
+} */
 
 #webApp-left #notifications {
     height: 9%;
+    background-color: #8edafc;
 }
 
 #webApp-left #findChat {
     height: 6%;
+    background-color: #fafafa;
 }
 
 #webApp-left #allChat {
