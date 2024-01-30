@@ -23,3 +23,19 @@
     background-position: center;
     /* background-size: contain; */
 }
+
+#webApp-left #user {
+    height: 9%;
+}
+
+#webApp-left #notifications {
+    height: 9%;
+}
+
+#webApp-left #findChat {
+    height: 6%;
+}
+
+#webApp-left #allChat {
+    height: 76%;
+}
