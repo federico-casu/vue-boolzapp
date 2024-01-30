@@ -1,0 +1,25 @@
+#webApp {
+    background: rgb(0,150,136);
+    background: linear-gradient(to bottom, rgb(0,150,136) 15%, rgb(218,219,211) 15%);
+}
+
+/* #webApp-left {
+    width: 40%;
+}
+
+#webApp-right {
+    width: 60%;
+} */
+
+#chat-top,
+#chat-bottom {
+    height: 9%;
+}
+
+#chat-middle {
+    height: 82%;
+    background-image: url('../img/mine.jpg');
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    /* background-size: contain; */
+}
