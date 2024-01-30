@@ -59,3 +59,20 @@
     font-size: 0.8rem;
 }
 
+#chat-bottom {
+    background-color: #f3eeea;
+}
+
+#chat-bottom #emoticons,
+#chat-bottom #microphone {
+    width: 12%;
+    cursor: pointer;
+}
+
+#chat-bottom #text-message {
+    width: 76%;
+}
+
+#chat-bottom #text-message input {
+    line-height: 2.3;
+}
