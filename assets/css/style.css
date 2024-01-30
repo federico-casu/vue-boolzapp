@@ -46,3 +46,15 @@
 #webApp-left #allChat {
     height: 76%;
 }
+
+#allChat .conversation {
+    height: 12%;
+    border: 1px dashed black;
+}
+
+#allChat .conversation p,
+#allChat .conversation > span,
+#webApp-left #notifications a {
+    font-size: 0.8rem;
+}
+
