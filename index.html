@@ -63,7 +63,11 @@
                         <!-- ANCHOR lista delle chat -->
                         <div id="allChat" class="overflow-auto">
                             <!-- conversazione -->
-                            <div v-for="(contact, index) in contacts" class="conversation d-flex justify-content-between p-2 border-bottom">
+                            <div 
+                            @click="activeContact = index" 
+                            v-for="(contact, index) in contacts" 
+                            :class="index === activeContact ? 'active' : ''"
+                            class="conversation d-flex justify-content-between p-2 border-bottom">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
                                         <img class="rounded-circle h-100" :src="contacts[index].avatar" alt="user Image">
@@ -86,10 +90,10 @@
                             <div class="conversation h-100 d-flex justify-content-between p-2">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
-                                        <img class="rounded-circle h-100" src="./img/avatar_io.jpg" alt="user Image">
+                                        <img class="rounded-circle h-100" :src="contacts[activeContact].avatar" alt="user Image">
                                     </figure>
                                     <div class="d-flex flex-column">
-                                        <span>Nome</span>
+                                        <span>{{contacts[activeContact].name}}</span>
                                         <p class="m-0 text-black-50">Ultimo accesso</p>
                                     </div>
                                 </div>
@@ -102,16 +106,12 @@
                         </div>
                         <!-- ANCHOR chat-middle -->
                         <div id="chat-middle" class="container py-3 px-5">
-                            <div class="chat-message received-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1">
+                            <div
+                            v-for="(message, index) in contacts[activeContact].messages" 
+                            :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent-message ms-auto' : 'received-message'"
+                            class="chat-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1">
                                 <p class="m-0">
-                                    testo del messaggio
-                                </p>
-                                <span class="align-self-end">12:00</span>
-                            </div>
-                            <!-- se il messaggio è inviato inserirlo con ms-auto e la classe con il bg verde -->
-                            <div class="chat-message sent-message rounded-3 mt-2 ms-auto d-flex justify-content-between align-items-center px-2 py-1">
-                                <p class="m-0">
-                                    testo del messaggio
+                                    {{contacts[activeContact].messages[index].message}}
                                 </p>
                                 <span class="align-self-end">12:00</span>
                             </div>

@@ -10,7 +10,7 @@
 
 #chat-middle {
     height: 82%;
-    background-image: url('../img/mine.jpg');
+    background-image: url('../../img/mine.jpg');
     /* background-repeat: no-repeat; */
     background-position: center;
     /* background-size: contain; */
@@ -79,4 +79,8 @@
 
 .sent-message {
     background-color: #d5f9ba;
+}
+
+.active {
+    background-color: #e9ebeb;
 }
