@@ -166,7 +166,8 @@ createApp({
                     ]
                 }
             ],
-            activeContact: 0
+            activeContact: 0,
+            textNewMessage: ''
         }
     },
     methods: {
@@ -174,6 +175,16 @@ createApp({
             const array = str.split(' ');
 
             return array[1].slice(0, 5)
+        },
+        sendMessage(index){
+            const newMessage = {
+                date: '07/07/2007 07:07:07',
+                message: this.textNewMessage,
+                status: 'sent'
+            }
+
+            this.contacts[index].messages.push(newMessage);
+            this.textNewMessage = ''
         }
     }
 }).mount('#app')

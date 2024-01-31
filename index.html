@@ -129,6 +129,8 @@
                                         class="form-control"
                                         id=""
                                         placeholder="Scrivi un messaggio"
+                                        v-model="textNewMessage"
+                                        @keyUp.enter="sendMessage(activeContact)"
                                     />
                                 </div>                                
                             </div>
