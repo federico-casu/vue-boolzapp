@@ -210,7 +210,7 @@ createApp({
         },
         chatFilter() {
             this.contacts.forEach( contact => {
-                return contact.name.includes(this.contactFilter) ? contact.visible = true : contact.visible = false
+                return contact.name.toLowerCase().includes(this.contactFilter.toLowerCase()) ? contact.visible = true : contact.visible = false
             });
         }
     }
