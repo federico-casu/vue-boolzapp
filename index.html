@@ -49,7 +49,8 @@
                             </div>
                         </div>
                         <!-- ANCHOR barra ricerca chat -->
-                        <div id="findChat" class="border-bottom input-group d-flex justify-content-center align-items-center py-1 px-2">
+                        <div id="findChat" 
+                        class="border-bottom input-group d-flex justify-content-center align-items-center py-1 px-2">
                             <span class="input-group-text border-0 p-2 bg-white">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
@@ -59,6 +60,7 @@
                                 id=""
                                 placeholder="Cerca o inizia una nuova chat"
                                 v-model="contactFilter"
+                                @keyUp="chatFilter"
                             />
                         </div>
                         <!-- ANCHOR lista delle chat -->
@@ -67,20 +69,20 @@
                             <div 
                             @click="activeContact = index" 
                             v-for="(contact, index) in contacts" 
-                            :class="[index === activeContact ? 'active' : '']"
-                            class="conversation d-flex justify-content-between p-2 border-bottom"
-                            v-show="contacts[index].visible">
+                            :class="[index === activeContact ? 'active' : '', contact.visible ? 'd-flex justify-content-between' : '']"
+                            class="conversation p-2 border-bottom"
+                            v-show="contact.visible">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
-                                        <img class="rounded-circle h-100" :src="contacts[index].avatar" alt="user Image">
+                                        <img class="rounded-circle h-100" :src="contact.avatar" alt="user Image">
                                     </figure>
                                     <div class="d-flex flex-column">
-                                        <span>{{contacts[index].name}}</span>
-                                        <p class="m-0 text-black-50">{{contacts[index].messages[contacts[index].messages.length - 1].message}}</p>
+                                        <span>{{contact.name}}</span>
+                                        <p class="m-0 text-black-50">{{contact.messages[contact.messages.length - 1].message}}</p>
                                     </div>
                                 </div>
                                 <span class="text-black-50 pe-2">
-                                    {{getTime(contacts[index].messages[contacts[index].messages.length - 1].date)}}
+                                    {{getTime(contact.messages[contact.messages.length - 1].date)}}
                                 </span>
                             </div>
                         </div>

@@ -146,7 +146,7 @@ createApp({
                 {
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -172,6 +172,14 @@ createApp({
         }
     },
     methods: {
+        firstActiveContact() {
+            this.contacts.forEach((contact, index) => {
+                if (contact.visible === 'true') {
+                    this.activeContact = index;
+                    return
+                }
+            });
+        },
         getTime(str) {
             const array = str.split(' ');
 
@@ -199,6 +207,11 @@ createApp({
                 }, 1000)
             }
             this.textNewMessage = ''
+        },
+        chatFilter() {
+            this.contacts.forEach( contact => {
+                return contact.name.includes(this.contactFilter) ? contact.visible = true : contact.visible = false
+            });
         }
     }
 }).mount('#app')
