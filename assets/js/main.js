@@ -170,7 +170,11 @@ createApp({
         }
     },
     methods: {
+        getTime(str) {
+            const array = str.split(' ');
 
+            return array[1].slice(0, 5)
+        }
     }
 }).mount('#app')
 

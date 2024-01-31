@@ -32,6 +32,10 @@
     background-color: #fafafa;
 }
 
+#webApp-left #findChat input {
+    line-height: 1;
+}
+
 #webApp-left #allChat {
     height: 76%;
 }
@@ -83,4 +87,9 @@
 
 .active {
     background-color: #e9ebeb;
+}
+
+#basic-addon1,
+.form-control {
+    border: 0;
 }

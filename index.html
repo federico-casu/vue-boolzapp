@@ -50,18 +50,18 @@
                         </div>
                         <!-- ANCHOR barra ricerca chat -->
                         <div id="findChat" class="border-bottom input-group d-flex justify-content-center align-items-center py-1 px-2">
-                            <span class="input-group-text border-end-0 bg-white">
-                                <i class="fa-solid fa-magnifying-glass fs-4"></i>
+                            <span class="input-group-text border-0 p-2 bg-white">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
                             <input
                                 type="text"
-                                class="form-control border-start-0 ps-0"
+                                class="form-control ps-0"
                                 id=""
                                 placeholder="Cerca o inizia una nuova chat"
                             />
                         </div>
                         <!-- ANCHOR lista delle chat -->
-                        <div id="allChat" class="overflow-auto">
+                        <div id="allChat" class="overflow-y-scroll">
                             <!-- conversazione -->
                             <div 
                             @click="activeContact = index" 
@@ -74,11 +74,11 @@
                                     </figure>
                                     <div class="d-flex flex-column">
                                         <span>{{contacts[index].name}}</span>
-                                        <p class="m-0 text-black-50">Ultimo messaggio inviato</p>
+                                        <p class="m-0 text-black-50">{{contacts[index].messages[contacts[index].messages.length - 1].message}}</p>
                                     </div>
                                 </div>
                                 <span class="text-black-50 pe-2">
-                                    12:00
+                                    {{getTime(contacts[index].messages[contacts[index].messages.length - 1].date)}}
                                 </span>
                             </div>
                         </div>
@@ -94,7 +94,8 @@
                                     </figure>
                                     <div class="d-flex flex-column">
                                         <span>{{contacts[activeContact].name}}</span>
-                                        <p class="m-0 text-black-50">Ultimo accesso</p>
+                                        <p class="m-0 text-black-50">Ultimo accesso {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.slice(0, contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.length - 3)}}</p>
+                                        <!-- <p class="m-0 text-black-50">Ultimo accesso {{getTime(contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date)}}</p> -->
                                     </div>
                                 </div>
                                 <div class="icons d-flex align-items-center gap-3 text-black-50 fs-5 pe-2">
@@ -105,15 +106,15 @@
                             </div>
                         </div>
                         <!-- ANCHOR chat-middle -->
-                        <div id="chat-middle" class="container py-3 px-5">
+                        <div id="chat-middle" class="container py-3 px-5 overflow-y-scroll">
                             <div
                             v-for="(message, index) in contacts[activeContact].messages" 
                             :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent-message ms-auto' : 'received-message'"
                             class="chat-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1">
                                 <p class="m-0">
-                                    {{contacts[activeContact].messages[index].message}}
+                                    {{message.message}}
                                 </p>
-                                <span class="align-self-end">12:00</span>
+                                <span class="align-self-end">{{getTime(message.date)}}</span>
                             </div>
                         </div>
                         <!-- ANCHOR chat-bottom -->
