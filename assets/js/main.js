@@ -176,6 +176,9 @@ createApp({
 
             return array[1].slice(0, 5)
         },
+        // sendAnswer(index){
+            
+        // },
         sendMessage(index){
             const newMessage = {
                 date: '07/07/2007 07:07:07',
@@ -183,7 +186,20 @@ createApp({
                 status: 'sent'
             }
 
-            this.contacts[index].messages.push(newMessage);
+            if ( this.textNewMessage ) {
+                this.contacts[index].messages.push(newMessage);
+
+                setTimeout(() => {
+                    const answer = {
+                        date: '07/07/2007 07:07:07',
+                        message: 'Ok',
+                        status: 'received'
+                    }
+                    
+                    this.contacts[index].messages.push(answer);
+
+                }, 1000)
+            }
             this.textNewMessage = ''
         }
     }
