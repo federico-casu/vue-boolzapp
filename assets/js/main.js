@@ -146,7 +146,7 @@ createApp({
                 {
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -167,7 +167,8 @@ createApp({
                 }
             ],
             activeContact: 0,
-            textNewMessage: ''
+            textNewMessage: '',
+            contactFilter: ''
         }
     },
     methods: {
@@ -176,9 +177,6 @@ createApp({
 
             return array[1].slice(0, 5)
         },
-        // sendAnswer(index){
-            
-        // },
         sendMessage(index){
             const newMessage = {
                 date: '07/07/2007 07:07:07',
@@ -195,7 +193,7 @@ createApp({
                         message: 'Ok',
                         status: 'received'
                     }
-                    
+
                     this.contacts[index].messages.push(answer);
 
                 }, 1000)

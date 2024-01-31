@@ -58,6 +58,7 @@
                                 class="form-control ps-0"
                                 id=""
                                 placeholder="Cerca o inizia una nuova chat"
+                                v-model="contactFilter"
                             />
                         </div>
                         <!-- ANCHOR lista delle chat -->
@@ -66,8 +67,9 @@
                             <div 
                             @click="activeContact = index" 
                             v-for="(contact, index) in contacts" 
-                            :class="index === activeContact ? 'active' : ''"
-                            class="conversation d-flex justify-content-between p-2 border-bottom">
+                            :class="[index === activeContact ? 'active' : '']"
+                            class="conversation d-flex justify-content-between p-2 border-bottom"
+                            v-show="contacts[index].visible">
                                 <div class="logo-name d-flex gap-2">
                                     <figure class="rounded-circle m-0 d-flex align-items-center">
                                         <img class="rounded-circle h-100" :src="contacts[index].avatar" alt="user Image">
