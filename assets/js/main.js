@@ -172,14 +172,7 @@ createApp({
         }
     },
     methods: {
-        firstActiveContact() {
-            this.contacts.forEach((contact, index) => {
-                if (contact.visible === 'true') {
-                    this.activeContact = index;
-                    return
-                }
-            });
-        },
+        
         getCurrentDate(){
             let DateTime = luxon.DateTime;
             const now = DateTime.local();
@@ -227,7 +220,7 @@ createApp({
                 this.contacts[this.activeContact].messages.splice(index, 1)
             } else {
                 this.contacts[this.activeContact].messages.splice(index, 1)
-                this.contacts[this.activeContact].messages = ['']
+                this.contacts[this.activeContact].messages = []
             }
         }
     }

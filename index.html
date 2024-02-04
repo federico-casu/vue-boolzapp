@@ -78,10 +78,10 @@
                                     </figure>
                                     <div class="d-flex flex-column">
                                         <span>{{contact.name}}</span>
-                                        <p class="m-0 text-black-50">{{contact.messages[contact.messages.length - 1].message}}</p>
+                                        <p v-if="contact.messages.length != 0" class="m-0 text-black-50">{{contact.messages[contact.messages.length - 1].message}}</p>
                                     </div>
                                 </div>
-                                <span class="text-black-50 pe-2">
+                                <span v-if="contact.messages.length != 0" class="text-black-50 pe-2">
                                     {{getTime(contact.messages[contact.messages.length - 1].date)}}
                                 </span>
                             </div>
@@ -98,7 +98,7 @@
                                     </figure>
                                     <div class="d-flex flex-column">
                                         <span>{{contacts[activeContact].name}}</span>
-                                        <p class="m-0 text-black-50">Ultimo accesso {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.slice(0, contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.length - 3)}}</p>
+                                        <p v-if="contacts[activeContact].messages.length != 0" class="m-0 text-black-50">Ultimo accesso {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.slice(0, contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date.length - 3)}}</p>
                                         <!-- <p class="m-0 text-black-50">Ultimo accesso {{getTime(contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date)}}</p> -->
                                     </div>
                                 </div>
@@ -112,13 +112,14 @@
                         <!-- ANCHOR chat-middle -->
                         <div id="chat-middle" class="container py-3 px-5 overflow-y-scroll">
                             <div
+                            v-if="contacts[activeContact].messages.length != 0"
                             v-for="(message, index) in contacts[activeContact].messages" 
                             :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent-message ms-auto' : 'received-message'"
                             class="chat-message rounded-3 d-flex justify-content-between align-items-center mt-2 px-2 py-1 position-relative">
                                 <p class="m-0">
                                     {{message.message}}
                                 </p>
-                                <span class="align-self-end">{{getTime(message.date)}}</span>
+                                <span v-if="contacts[activeContact].messages.length != 0" class="align-self-end">{{getTime(message.date)}}</span>
                                 <i @click="dropdownShow(message)" @click class="fa-solid fa-chevron-down position-absolute rounded-circle p-1"></i>
                                 <ul id="myDropDown" v-show="message.mydropdownStatus" >
                                     <li>Message info</li>

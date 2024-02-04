@@ -42,6 +42,7 @@
 
 #allChat .conversation {
     height: 12%;
+    cursor: pointer;
 }
 
 .conversation p,
