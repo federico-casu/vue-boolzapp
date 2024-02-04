@@ -168,7 +168,7 @@ createApp({
             ],
             activeContact: 0,
             textNewMessage: '',
-            contactFilter: ''
+            contactFilter: '',
         }
     },
     methods: {
@@ -180,6 +180,12 @@ createApp({
                 }
             });
         },
+        getCurrentDate(){
+            let DateTime = luxon.DateTime;
+            const now = DateTime.local();
+
+            return now.toFormat('dd/MM/yyyy HH:mm:ss')
+        },
         getTime(str) {
             const array = str.split(' ');
 
@@ -187,7 +193,7 @@ createApp({
         },
         sendMessage(index){
             const newMessage = {
-                date: '07/07/2007 07:07:07',
+                date: this.getCurrentDate(),
                 message: this.textNewMessage,
                 status: 'sent'
             }
@@ -197,7 +203,7 @@ createApp({
 
                 setTimeout(() => {
                     const answer = {
-                        date: '07/07/2007 07:07:07',
+                        date: this.getCurrentDate(),
                         message: 'Ok',
                         status: 'received'
                     }
@@ -212,6 +218,17 @@ createApp({
             this.contacts.forEach( contact => {
                 return contact.name.toLowerCase().includes(this.contactFilter.toLowerCase()) ? contact.visible = true : contact.visible = false
             });
+        },
+        dropdownShow(message) {
+            message.mydropdownStatus ? message.mydropdownStatus = false : message.mydropdownStatus = true
+        },
+        removeMessage(index) {
+            if (this.contacts[this.activeContact].messages.length > 1) {
+                this.contacts[this.activeContact].messages.splice(index, 1)
+            } else {
+                this.contacts[this.activeContact].messages.splice(index, 1)
+                this.contacts[this.activeContact].messages = ['']
+            }
         }
     }
 }).mount('#app')
