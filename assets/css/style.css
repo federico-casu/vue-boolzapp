@@ -155,3 +155,25 @@
 #sendArrow .fa-location-arrow {
     transform: rotate(45deg);
 }
+
+#arrayEmoticons {
+    width: 250px;
+    height: 280px;
+
+    position: absolute;
+    bottom: 80%;
+    left: 60%;
+
+    z-index: 999;
+
+    border: 1px solid lightgray;
+
+    border-radius: 12px;
+}
+
+#arrayEmoticons > div {
+    flex-basis: 30px;
+    aspect-ratio: 1;
+
+
+}

@@ -169,10 +169,26 @@ createApp({
             activeContact: 0,
             textNewMessage: '',
             contactFilter: '',
+            answers: [
+                'Ok',
+                'Si',
+                'No',
+                'Non mi piace',
+                'Lo so',
+                'Anche io',
+                'Perchè?',
+                'Tutto bene',
+                'Grazie',
+                'Prego',
+            ],
+            emoticonsArray: ["✌","😂","😝","😁","😱","👉","🙌","🍻","🔥","🌈","☀","🎈","🌹","💄","🎀","⚽","🎾","🏁","😡","👿","🐻","🐶","🐬","🐟","🍀","👀","🚗","🍎","💝","💙","👌","❤","😍","😉","😓","😳","💪","💩","🍸","🔑","💖","🌟","🎉","🌺","🎶","👠","🏈","⚾","🏆","👽","💀","🐵","🐮","🐩","🐎","💣","👃","👂","🍓","💘","💜","👊","💋","😘","😜","😵","🙏","👋","🚽","💃","💎","🚀","🌙","🎁","⛄","🌊","⛵","🏀","🎱","💰","👶","👸","🐰","🐷","🐍","🐫","🔫","👄","🚲","🍉","💛","💚"],
+            dropdownEmoticons: false
         }
     },
     methods: {
-        
+        randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
         getCurrentDate(){
             let DateTime = luxon.DateTime;
             const now = DateTime.local();
@@ -197,7 +213,7 @@ createApp({
                 setTimeout(() => {
                     const answer = {
                         date: this.getCurrentDate(),
-                        message: 'Ok',
+                        message: this.answers[this.randomNumber(0, this.answers.length-1)],
                         status: 'received'
                     }
 

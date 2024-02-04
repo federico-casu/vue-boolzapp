@@ -129,8 +129,21 @@
                         </div>
                         <!-- ANCHOR chat-bottom -->
                         <div id="chat-bottom" class="row w-100 m-0 p-0 flex-nowrap">
-                            <div id="emoticons" class="d-flex justify-content-center align-items-center fs-4 text-black-50">
-                                <i class="fa-regular fa-face-smile"></i>
+                            <div id="emoticons" class="d-flex justify-content-center align-items-center fs-4 text-black-50 position-relative">
+                                <i 
+                                @click="dropdownEmoticons ? dropdownEmoticons = false : dropdownEmoticons = true" 
+                                class="fa-regular fa-face-smile"></i>
+                                <div 
+                                id="arrayEmoticons" 
+                                v-show="dropdownEmoticons"
+                                :class="dropdownEmoticons ? 'd-flex flex-wrap align-items-baseline overflow-auto' : ''" 
+                                class="p-1 bg-white">
+                                    <div 
+                                    v-for="emoticon in emoticonsArray" 
+                                    class="d-flex justify-content-center align-items-center" @click="textNewMessage += emoticon">
+                                        {{emoticon}}
+                                    </div>
+                                </div>
                             </div>
                             <div id="text-message" class="p-0 d-flex align-items-center">
                                 <div class="w-100">
