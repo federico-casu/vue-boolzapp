@@ -144,8 +144,13 @@
                                     />
                                 </div>                                
                             </div>
-                            <div id="microphone" class="d-flex justify-content-center align-items-center fs-4 text-black-50">
+                            <div v-if="!textNewMessage" id="microphone" class="d-flex justify-content-center align-items-center fs-4 text-black-50">
                                 <i class="fa-solid fa-microphone"></i>
+                            </div>
+                            <div v-else id="sendArrow" class="d-flex justify-content-center align-items-center fs-4 text-black-50 w-auto m-auto">
+                                <div @click="sendMessage(activeContact)" class="d-flex justify-content-center align-items-center bg-success p-1 ps-1 pe-2 rounded-circle">
+                                    <i class="fa-solid fa-location-arrow"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
